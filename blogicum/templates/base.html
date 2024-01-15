@@ -13,7 +13,7 @@
     <title>{% block title %} Заголовок {% endblock %}</title>
   </head>
   <body>
-    {% include "includes/header.html" %}
+    {% include "includes/header.html" with show_link=True %}
     <main>
       <div class="container py-5">
         {% block content %} Контент {% endblock %}
