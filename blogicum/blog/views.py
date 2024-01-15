@@ -1,4 +1,4 @@
-from django.shortcuts import render,Http404
+from django.shortcuts import render, Http404
 
 
 posts = [
@@ -56,6 +56,7 @@ def post_detail(request, id):
         return render(request, 'blog/detail.html', context)
     else:
         raise Http404('not found')
+
 
 def category_posts(request, category_slug):
     context = {'post': posts, 'category_slug': category_slug}
