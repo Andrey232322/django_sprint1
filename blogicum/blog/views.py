@@ -1,6 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render,Http404
 
-# Create your views here.
 
 posts = [
     {
@@ -52,9 +51,11 @@ def index(request):
 
 
 def post_detail(request, id):
-    context = {'post': posts[id]}
-    return render(request, 'blog/detail.html', context)
-
+    if 0 <= id < len(posts):
+        context = {'post': posts[id]}
+        return render(request, 'blog/detail.html', context)
+    else:
+        raise Http404('not found')
 
 def category_posts(request, category_slug):
     context = {'post': posts, 'category_slug': category_slug}
